@@ -105,7 +105,9 @@ class CarController {
 
         Car stotedcar = carService.findById(id);
 
-        car.setId(id);
+        car.setId(stotedcar.getId());
+
+        carService.save(car);
 
         Resource<Car> resource = assembler.toResource(car);
         return ResponseEntity.ok(resource);
